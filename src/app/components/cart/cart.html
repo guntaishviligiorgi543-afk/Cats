@@ -5,8 +5,13 @@
       <h1 id="cart-title">Shopping cart</h1>
       <p class="subheading">{{ totalItems() }} items</p>
     </div>
-    <button class="secondary-button" type="button" (click)="emptyCart()" [disabled]="cartItems.length === 0">
-      Empty cart
+    <button
+      class="secondary-button"
+      type="button"
+      (click)="emptyCart()"
+      [disabled]="cartItems.length === 0"
+    >
+      Empty Cart
     </button>
   </header>
 
@@ -26,9 +31,22 @@
             <p>{{ item.cat.weight }} kg</p>
           </div>
           <div class="quantity-control" [attr.aria-label]="'Quantity for ' + item.cat.name">
-            <button type="button" (click)="decreaseQuantity(item)" [attr.aria-label]="'Decrease ' + item.cat.name + ' quantity'">−</button>
+            <button
+              type="button"
+              (click)="decreaseQuantity(item)"
+              [attr.aria-label]="'Decrease ' + item.cat.name + ' quantity'"
+            >
+              −
+            </button>
             <span>{{ item.quantity }}</span>
-            <button type="button" (click)="increaseQuantity(item)" [disabled]="item.cat.stock === 0" [attr.aria-label]="'Increase ' + item.cat.name + ' quantity'">+</button>
+            <button
+              type="button"
+              (click)="increaseQuantity(item)"
+              [disabled]="item.cat.stock === 0"
+              [attr.aria-label]="'Increase ' + item.cat.name + ' quantity'"
+            >
+              +
+            </button>
           </div>
           <p class="item-price">${{ (item.cat.price * item.quantity).toFixed(2) }}</p>
           <button class="remove-button" type="button" (click)="removeFromCart(item)">Remove</button>
