@@ -1,0 +1,15 @@
+<header class="site-header">
+  <a class="brand" routerLink="/" aria-label="Cats home">Cats</a>
+
+  <nav aria-label="Main navigation">
+    <a
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      ariaCurrentWhenActive="page"
+      >Home</a
+    >
+    <a routerLink="/cats" routerLinkActive="active" ariaCurrentWhenActive="page">All cats</a>
+    <a routerLink="/cart" routerLinkActive="active" ariaCurrentWhenActive="page">Cart</a>
+  </nav>
+</header>

@@ -1,0 +1,63 @@
+<section class="cats-page" aria-labelledby="cats-title">
+  <p class="eyebrow">Our friends</p>
+  <h1 id="cats-title">Meet the cats</h1>
+  <p>Meet ten wild cat species from around the world.</p>
+  <aside class="cart-panel" aria-labelledby="cart-title">
+    <div class="cart-heading">
+      <div>
+        <p class="eyebrow">Your selection</p>
+        <h2 id="cart-title">Cart <span>{{ cartCount() }}</span></h2>
+      </div>
+      <button class="text-button" type="button" (click)="emptyCart()" [disabled]="cart.length === 0">
+        Empty cart
+      </button>
+    </div>
+    @if (cart.length === 0) {
+      <p class="cart-empty">Your cart is empty.</p>
+    } @else {
+      <ul class="cart-list">
+        @for (item of cart; track item.cat.id) {
+          <li class="cart-item">
+            <img [src]="item.cat.image" [alt]="item.cat.name" />
+            <div class="cart-item-info">
+              <h3>{{ item.cat.name }}</h3>
+              <p>{{ item.cat.origin }} · {{ item.cat.weight }} kg</p>
+              <p>{{ item.cat.stock }} remaining in stock</p>
+            </div>
+            <div class="quantity-control" [attr.aria-label]="'Quantity for ' + item.cat.name">
+              <button type="button" (click)="decreaseQuantity(item)" [attr.aria-label]="'Decrease ' + item.cat.name + ' quantity'">−</button>
+              <span>{{ item.quantity }}</span>
+              <button type="button" (click)="increaseQuantity(item)" [disabled]="item.cat.stock === 0" [attr.aria-label]="'Increase ' + item.cat.name + ' quantity'">+</button>
+            </div>
+            <button class="remove-button" type="button" (click)="removeItem(item)">Remove</button>
+          </li>
+        }
+      </ul>
+    }
+  </aside>
+  <div class="cat-grid">
+    @for (cat of cats; track cat.id) {
+      @if (cat.stock > 0) {
+        <article class="cat-card">
+          <img [src]="cat.image" [alt]="cat.name" loading="lazy" />
+          <div class="cat-details">
+            <h2>{{ cat.name }}</h2>
+            <p>{{ cat.color }} · {{ cat.origin }}</p>
+            <p>Typical weight: {{ cat.weight }} kg</p>
+            <p>In stock: {{ cat.stock }}</p>
+            <button
+              class="addtoCart"
+              (click)="addtoCart(cat.id)"
+              [disabled]="cat.stock === 0"
+            >
+              {{ cat.stock === 0 ? 'Out of Stock' : 'Add to Cart' }}
+            </button>
+          </div>
+        </article>
+      }
+    } @empty {
+      <p class="no-cats">No cats available at the moment.</p>
+    }
+    <p></p>
+  </div>
+</section>

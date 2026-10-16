@@ -1,0 +1,46 @@
+:host {
+  display: block;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1rem clamp(1rem, 5vw, 4rem);
+  background: #fff;
+  border-bottom: 1px solid #e8e3df;
+}
+
+.brand,
+nav a {
+  color: #312b29;
+  text-decoration: none;
+}
+
+.brand {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+nav a:hover,
+nav a.active {
+  color: #a64d44;
+  border-bottom-color: currentColor;
+}
+
+nav a:focus-visible,
+.brand:focus-visible {
+  outline: 2px solid #a64d44;
+  outline-offset: 4px;
+}

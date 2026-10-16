@@ -1,0 +1,43 @@
+.hero {
+  max-width: 760px;
+  margin: 5rem auto;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.hero h1,
+.cats-page h1,
+.error-page h1 {
+  margin: 0.4rem 0 1rem;
+  color: #29221f;
+  font-size: clamp(2.4rem, 7vw, 4.5rem);
+  line-height: 1.05;
+}
+
+.hero p:not(.eyebrow),
+.cats-page p:not(.eyebrow),
+.error-page p:not(.eyebrow) {
+  color: #665b56;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.eyebrow {
+  color: #a14e35;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero a,
+.error-page a {
+  display: inline-block;
+  margin-top: 1rem;
+  border-radius: 999px;
+  background: #a14e35;
+  padding: 0.8rem 1.4rem;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
